@@ -1,0 +1,101 @@
+<template>
+  <div>
+    <my-header></my-header>
+    <section class="container">
+      <div class="content-wrap">
+        <div class="content">
+          <div class="title">
+            <h3 style="line-height: 1.3">{{title}}</h3>
+          </div>
+          <ul>
+            <li v-for="(item,key) in contents.list" :key="key">
+              <article class="excerpt excerpt-5">
+                <a class="focus" title="" @click="goContent(item.id,$event)">
+                  <img class="thumb" :src="item.images" alt="" style="display: inline;">
+                </a>
+                <header>
+                  <a class="cat" href="#">{{item.typeName}}<i></i></a>
+                  <h2>
+                    <a href="#" :title="item.title" @click="goContent(item.id,$event)">{{item.title}}</a>
+                  </h2>
+                </header>
+                <p class="meta">
+                  <time class="time">
+                    <i class="glyphicon glyphicon-time"></i>{{item.createTime.split('T')[0]}}
+                  </time>
+                  <span class="views">
+                    <i class="glyphicon glyphicon-eye-open"></i>{{item.readNum}}
+                  </span>
+                  <a class="comment" href="#" title="评论" target="_blank">
+                    <i class="glyphicon glyphicon-comment"></i>{{item.remarkNum}}
+                  </a>
+                </p>
+                <p class="note">{{item.introduction}}</p>
+              </article>
+            </li>
+          </ul>
+          <nav class="pagination" style="display: none;">
+            <ul>
+              <li class="prev-page"></li>
+              <li class="active"><span>1</span></li>
+              <li><a href="?page=2">2</a></li>
+              <li class="next-page"><a href="?page=2">下一页</a></li>
+              <li><span>共 2 页</span></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <my-right></my-right>
+    </section>
+    <my-footer></my-footer>
+  </div>
+</template>
+
+<script>
+  import Footer from "./comment/Footer";
+  import Header from "./comment/Header";
+  import RightSidebar from "./comment/RightSidebar";
+
+  export default {
+    name: "List",
+    data() {
+      return {
+        title: '',
+        contents: {},
+      }
+    },
+    mounted() {
+      this.list();
+    },
+    methods: {
+      list() {
+        let keyword = this.$route.query.keyword || '';
+        let typeId = this.$route.query.typeId || '';
+        let specialId = this.$route.query.specialId || '';
+        let labels = this.$route.query.labels || '';
+        let pageNum = this.$route.query.pageNum || '';
+        let pageSize = this.$route.query.pageSize || '';
+        this.$axios.get("/api/font/content/list?keyword=" + keyword + "&typeId=" + typeId + "&specialId=" + specialId + "&labels=" + labels + "&pageNum=" + pageNum + "&pageSize=" + pageSize).then(res => {
+          console.log(res.data);
+          if (res.status) {
+            let {title, contents} = res.data.data;
+            this.title = title;
+            this.contents = contents;
+          }
+        })
+      },
+      goContent(cid, e) {
+        this.$router.push({path: "/content", query: {cid: cid}});
+      }
+    },
+    components: {
+      'my-header': Header,
+      'my-footer': Footer,
+      'my-right': RightSidebar,
+    },
+  }
+</script>
+
+<style scoped>
+
+</style>

@@ -7,6 +7,9 @@
           <div class="title">
             <h3 style="line-height: 1.3">{{title}}</h3>
           </div>
+          <div v-if="!listCount">
+            没有数据
+          </div>
           <ul>
             <li v-for="(item,key) in contents.list" :key="key">
               <article class="excerpt excerpt-5">
@@ -62,6 +65,7 @@
       return {
         title: '',
         contents: {},
+        listCount:0,
       }
     },
     mounted() {
@@ -72,15 +76,16 @@
         let keyword = this.$route.query.keyword || '';
         let typeId = this.$route.query.typeId || '';
         let specialId = this.$route.query.specialId || '';
-        let labels = this.$route.query.labels || '';
+        let label = this.$route.query.label || '';
         let pageNum = this.$route.query.pageNum || '';
         let pageSize = this.$route.query.pageSize || '';
-        this.$axios.get("/api/font/content/list?keyword=" + keyword + "&typeId=" + typeId + "&specialId=" + specialId + "&labels=" + labels + "&pageNum=" + pageNum + "&pageSize=" + pageSize).then(res => {
+        this.$axios.get("/api/font/content/list?keyword=" + keyword + "&typeId=" + typeId + "&specialId=" + specialId + "&label=" + label + "&pageNum=" + pageNum + "&pageSize=" + pageSize).then(res => {
           console.log(res.data);
           if (res.status) {
             let {title, contents} = res.data.data;
             this.title = title;
             this.contents = contents;
+            this.listCount = contents.list.length;
           }
         })
       },

@@ -22,11 +22,11 @@
               </h2>
             </div>
             <div role="tabpanel" class="tab-pane contact active" id="contact">
-              <h2>QQ:
+              <h2>QQ:405963225
                 <a href="" target="_blank" rel="nofollow" data-toggle="tooltip" data-placement="bottom"
                    title="" data-original-title="QQ:"></a>
               </h2>
-              <h2>Email:
+              <h2>Email:ghostxbh@hotmail.com
                 <a href="#" target="_blank" data-toggle="tooltip" rel="nofollow" data-placement="bottom"
                    title="" data-original-title="#"></a></h2>
             </div>
@@ -48,18 +48,18 @@
         <h3>专栏列表</h3>
         <ul>
           <li v-for="(item,key) in specials" :key="key">
-            <a :title="item.title" @click="goListBySpecial(item.id)">
+            <a :title="item.name" @click="goListBySpecial(item.id)">
                 <span class="thumbnail">
-				          <img class="thumb" :src="item.images" :alt="item.title" style="display: block;">
+				          <img class="thumb" :src="item.image" :alt="item.name" style="display: block;">
 			          </span>
-              <span class="text">{{item.title}}</span>
+              <span class="text">{{item.name}}</span>
               <span class="muted">
                   <i class="glyphicon glyphicon-time"></i>
-				          {{item.createTime}}
+				          {{item.create_time}}
 			          </span>
               <span class="muted">
                   <i class="glyphicon glyphicon-eye-open"></i>
-                  {{item.readNum}}
+                  {{item.read_num}}
                 </span>
             </a>
           </li>
@@ -100,11 +100,9 @@
       </div>-->
       <div class="widget widget_sentence" v-if="links.length">
         <h3>友情链接</h3>
-        <ul>
-          <li v-for="(item,key) in links" :key="key">
-            <div class="widget-sentence-link">
-              <a :href="item.url" target="_blank">{{item.name}}</a>
-            </div>
+        <ul class="link-ul">
+          <li v-for="(item,key) in links" :key="key" class="link-li">
+            <a :href="item.url" target="_blank">{{item.name}}</a>
           </li>
         </ul>
       </div>
@@ -143,9 +141,6 @@
       goContent(cid, e) {
         this.$router.push({path: "/content", query: {cid: cid}});
       },
-     /* goListByLabel(label) {
-        this.$router.push({path: "/list", query: {labels: label}});
-      },*/
       goListBySpecial(specialId) {
         this.$router.push({path: "/list", query: {specialId: specialId}});
       },
@@ -158,4 +153,14 @@
 </script>
 
 <style scoped>
+  .link-ul{
+    margin-left: 2%;
+  }
+  .link-li{
+    float: left;
+    font-size: 14px;
+    padding: 14px 8px 10px;
+    margin: 0;
+    cursor: default;
+  }
 </style>

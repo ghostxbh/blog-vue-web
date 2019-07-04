@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-bottom: 95px">
     <header class="header">
       <nav class="navbar navbar-default" id="navbar">
         <div class="container">
@@ -18,9 +18,8 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#header-navbar" aria-expanded="false"><span class="sr-only"></span> <span
               class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <h1 class="logo hvr-bounce-in"><a href="#" title="KivenBen's博客"><img
-              src="../../assets/images/201610171329086541.png"
-              alt="KivenBen's博客"></a></h1>
+            <h1 class="logo hvr-bounce-in"><a href="#" title="KivenBen's博客">
+              <img src="../../assets/images/logo.png" alt="KivenBen's博客" height="50" width="180"></a></h1>
           </div>
           <div class="collapse navbar-collapse" id="header-navbar">
             <ul class="nav navbar-nav navbar-right">
@@ -68,10 +67,15 @@
       goListByType(typeId) {
         this.$router.push({path: "/list", query: {typeId: typeId}});
       },
-      goLabel(){
+      goLabel() {
         this.$router.push({path: "/label"});
       },
-    }
+    },
+    watch: {
+      '$route' (to, from) {
+        this.$router.go(0);
+      }
+    },
   }
 </script>
 
@@ -80,5 +84,11 @@
     padding: 0 8px;
     margin-top: 12px;
     font-size: 16px;
+  }
+  .header{
+    width: 100%;
+    position: fixed;
+    top:0;
+    z-index: 100;
   }
 </style>

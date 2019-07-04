@@ -117,5 +117,9 @@
 </script>
 
 <style scoped>
-
+  .hello {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 </style>

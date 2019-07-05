@@ -83,7 +83,8 @@
                       <i class="fa fa-check"></i>
                       <span class="comment-prompt-text">评论提交成功...</span>
                     </div>
-                    <button @click="getRemark(contentDetail.id)" name="comment-submit" id="comment-submit" tabindex="4">评论
+                    <button @click="getRemark(contentDetail.id)" name="comment-submit" id="comment-submit" tabindex="4">
+                      评论
                     </button>
                   </div>
                 </div>
@@ -136,8 +137,8 @@
       this.content();
     },
     methods: {
-      content() {
-        let cid = this.$route.query.cid;
+      content(contentId) {
+        let cid = this.$route.query.cid || contentId;
         this.$axios.get("/api/font/content/" + cid).then(res => {
           if (res.status) {
             console.log(res.data.data);
@@ -152,11 +153,8 @@
         let remark = this.remark;
         remark.contentId = cid;
         this.$axios.post("/api/font/remark/create", remark).then(res => {
-          console.log(res.data);
-          if (res.status) {
-            return this.$router.push({path: "/content", query: {cid: cid}});
-          }
-        })
+          this.content(cid);
+        });
       },
     },
     components: {
@@ -164,16 +162,27 @@
       'my-footer': Footer,
       'my-right': RightSidebar,
     },
+    watch: {
+      '$route'(to, from) {
+        this.$router.go(0);
+      }
+    },
   }
 </script>
 
 <style scoped>
+  .content {
+    padding: 0 20px;
+    background-color: #fff;
+    border: 1px solid #EAEAEA;
+    border-radius: 4px;
+  }
+
   .labels-ul {
     margin-left: 20%;
   }
 
   .labels-ul span {
-
     float: left;
   }
 

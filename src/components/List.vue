@@ -4,8 +4,9 @@
     <section class="container">
       <div class="content-wrap">
         <div class="content">
-          <div class="title">
+          <div class="title-div">
             <h3 style="line-height: 1.3">{{title}}</h3>
+            <p>目前共计&ensp;{{contents.total}}&ensp;篇文章</p>
           </div>
           <div v-if="!listCount">
             没有数据
@@ -102,5 +103,16 @@
 </script>
 
 <style scoped>
+  .title-div {
+    text-align: center;
+  }
 
+  .title-div h3 {
+    font-family: 'LiHei Pro Medium', serif;
+  }
+  .title-div p {
+    font-size: 16px;
+    line-height: 3;
+    color: black;
+  }
 </style>

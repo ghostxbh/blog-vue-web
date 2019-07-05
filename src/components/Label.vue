@@ -5,7 +5,7 @@
       <div class="content-wrap">
         <div class="title-div">
           <h3 style="line-height: 1.3">标签分类</h3>
-          <p>目前共计<span class="count-width">{{labelCount}}</span>个标签</p>
+          <p>目前共计&ensp;{{labelCount}}&ensp;个标签</p>
         </div>
         <div class="label-list">
           <ul class="label-ul">
@@ -80,14 +80,10 @@
     font-family: 'LiHei Pro Medium', serif;
   }
 
-  .count-width span {
-    padding: 10px;
-  }
-
   .title-div p {
     font-size: 16px;
     line-height: 4;
-    color: whitesmoke;
+    color: black;
   }
 
   .label-list {

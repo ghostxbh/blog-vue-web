@@ -5,7 +5,7 @@
       <div class="content-wrap">
         <div class="content">
           <div class="title-div">
-            <h3 style="line-height: 1.3">{{title}}</h3>
+            <h3>{{title}}</h3>
             <p>目前共计&ensp;{{contents.total}}&ensp;篇文章</p>
           </div>
           <div v-if="!listCount">
@@ -66,7 +66,7 @@
       return {
         title: '',
         contents: {},
-        listCount:0,
+        listCount: 0,
       }
     },
     mounted() {
@@ -108,8 +108,10 @@
   }
 
   .title-div h3 {
+    line-height: 1.3;
     font-family: 'LiHei Pro Medium', serif;
   }
+
   .title-div p {
     font-size: 16px;
     line-height: 3;

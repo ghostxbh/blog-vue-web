@@ -38,7 +38,7 @@
               </article>
             </li>
           </ul>
-          <nav class="pagination" style="display: none;">
+          <!--<nav class="pagination" style="display: none;">
             <ul>
               <li class="prev-page"></li>
               <li class="active"><span>1</span></li>
@@ -46,7 +46,7 @@
               <li class="next-page"><a href="?page=2">下一页</a></li>
               <li><span>共 2 页</span></li>
             </ul>
-          </nav>
+          </nav>-->
         </div>
       </div>
       <my-right></my-right>

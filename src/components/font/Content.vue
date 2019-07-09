@@ -114,9 +114,9 @@
 </template>
 
 <script>
-  import Header from "./comment/Header";
-  import Footer from "./comment/Footer";
-  import RightSidebar from "./comment/RightSidebar";
+  import Header from "../comment/Header";
+  import Footer from "../comment/Footer";
+  import RightSidebar from "../comment/RightSidebar";
 
   export default {
     name: "Content",

@@ -7,6 +7,7 @@
             <ul class="site-nav topmenu">
               <li><a @click="goLabel($event)">标签云</a></li>
               <li><a href="#" rel="nofollow">读者墙</a></li>
+              <li><a @click="goEditor()" rel="nofollow">Editor</a></li>
               <li><a href="#" title="RSS订阅">
                 <i class="fa fa-rss">
                 </i> RSS订阅
@@ -69,6 +70,9 @@
       },
       goLabel() {
         this.$router.push({path: "/label"});
+      },
+      goEditor() {
+        this.$router.push({path: "/editor"});
       },
     },
     watch: {

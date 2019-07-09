@@ -12,11 +12,11 @@
             <div class="carousel-inner" role="listbox">
               <div class="item active">
                 <a href="#" target="_blank">
-                  <img src="../assets/images/201610181557196870.jpg" class="img-responsive"></a>
+                  <img src="../../assets/images/201610181557196870.jpg" class="img-responsive"></a>
               </div>
               <div class="item">
                 <a href="#" target="_blank">
-                  <img src="../assets/images/201610241227558789.jpg" class="img-responsive"></a>
+                  <img src="../../assets/images/201610241227558789.jpg" class="img-responsive"></a>
               </div>
             </div>
             <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev" rel="nofollow">
@@ -78,9 +78,9 @@
 </template>
 
 <script>
-  import Footer from "./comment/Footer";
-  import Header from "./comment/Header";
-  import RightSidebar from "./comment/RightSidebar";
+  import Footer from "../comment/Footer";
+  import Header from "../comment/Header";
+  import RightSidebar from "../comment/RightSidebar";
 
   export default {
     name: 'Home',

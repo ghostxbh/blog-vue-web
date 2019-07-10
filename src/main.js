@@ -16,11 +16,9 @@ import './assets/js/jquery.lazyload.min.js'
 import './assets/js/jquery.ias.js'
 import './assets/js/html5shiv.min.js'
 import './assets/js/bootstrap.min'
-
 // import './assets/js/respond.min.js'
 //
 // import './assets/js/selectivizr-min.js'
-
 import './assets/css/bootstrap.min.css'
 import './assets/css/font-awesome.min.css'
 import './assets/css/normalize.css'

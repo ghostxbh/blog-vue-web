@@ -5,9 +5,11 @@ import content from '../components/font/Content';
 import list from '../components/font/List';
 import label from '../components/font/Label';
 import editor from '../components/admin/index';
+
 Vue.use(Router)
 
 export default new Router({
+  mode:'history',
   routes: [
     {
       path: '/',

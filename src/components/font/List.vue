@@ -38,15 +38,12 @@
               </article>
             </li>
           </ul>
-          <!--<nav class="pagination" style="display: none;">
-            <ul>
-              <li class="prev-page"></li>
-              <li class="active"><span>1</span></li>
-              <li><a href="?page=2">2</a></li>
-              <li class="next-page"><a href="?page=2">下一页</a></li>
-              <li><span>共 2 页</span></li>
+          <nav>
+            <ul class="pager">
+              <li><a @click="pageList(1)" v-if="pageNum>1">上一页</a></li>
+              <li><a @click="pageList(0)" v-if="pageCount>9">下一页</a></li>
             </ul>
-          </nav>-->
+          </nav>
         </div>
       </div>
       <my-right></my-right>
@@ -67,6 +64,13 @@
         title: '',
         contents: {},
         listCount: 0,
+        pageCount: 0,
+        keyword: '',
+        typeId: 0,
+        specialId: 0,
+        label: '',
+        pageNum: 0,
+        pageSize: 0
       }
     },
     mounted() {
@@ -78,15 +82,43 @@
         let typeId = this.$route.query.typeId || '';
         let specialId = this.$route.query.specialId || '';
         let label = this.$route.query.label || '';
-        let pageNum = this.$route.query.pageNum || '';
-        let pageSize = this.$route.query.pageSize || '';
+        let pageNum = this.$route.query.pageNum || 1;
+        let pageSize = this.$route.query.pageSize || 10;
+        console.log('keyword:' + keyword + ",typeId:" + typeId + ",specialId:" + specialId + ',label:' + label + ',page:' + pageNum + ',size:' + pageSize);
         this.$axios.get("/api/font/content/list?keyword=" + keyword + "&typeId=" + typeId + "&specialId=" + specialId + "&label=" + label + "&pageNum=" + pageNum + "&pageSize=" + pageSize).then(res => {
           console.log(res.data);
           if (res.status) {
             let {title, contents} = res.data.data;
             this.title = title;
             this.contents = contents;
-            this.listCount = contents.list.length;
+            this.listCount = contents.total;
+            this.pageCount = contents.list.length;
+            this.pageNum = contents.pageNum;
+            this.pageSize = contents.pageSize;
+          }
+        })
+      },
+      pageList(status) {
+        let keyword = this.$route.query.keyword || '';
+        let typeId = this.$route.query.typeId || '';
+        let specialId = this.$route.query.specialId || '';
+        let label = this.$route.query.label || '';
+        let pageNum = this.pageNum;
+        if (pageNum >= 1) {
+          pageNum = status > 0 ? pageNum - 1 : pageNum + 1;
+        }
+        let pageSize = this.pageSize;
+        console.log('keyword:' + keyword + ",typeId:" + typeId + ",specialId:" + specialId + ',label:' + label + ',page:' + pageNum + ',size:' + pageSize);
+        this.$axios.get("/api/font/content/list?keyword=" + keyword + "&typeId=" + typeId + "&specialId=" + specialId + "&label=" + label + "&pageNum=" + pageNum + "&pageSize=" + pageSize).then(res => {
+          console.log(res.data);
+          if (res.status) {
+            let {title, contents} = res.data.data;
+            this.title = title;
+            this.contents = contents;
+            this.listCount = contents.total;
+            this.pageCount = contents.list.length;
+            this.pageNum = contents.pageNum;
+            this.pageSize = contents.pageSize;
           }
         })
       },
@@ -98,6 +130,11 @@
       'my-header': Header,
       'my-footer': Footer,
       'my-right': RightSidebar,
+    },
+    watch: {
+      '$route'(to, from) {
+        this.$router.go(0);
+      }
     },
   }
 </script>

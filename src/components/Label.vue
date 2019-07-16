@@ -22,8 +22,8 @@
 </template>
 
 <script>
-  import Footer from "../comment/Footer";
-  import Header from "../comment/Header";
+  import Footer from "./comment/Footer";
+  import Header from "./comment/Header";
 
   export default {
     name: "Label",
@@ -60,7 +60,7 @@
 
 <style scoped>
   .label-body {
-    background-image: url("../../assets/images/yulong.jpeg");
+    background-image: url("../assets/images/yulong.jpeg");
     position: relative;
     min-width: 1000px;
     min-height: 650px;

@@ -53,9 +53,9 @@
 </template>
 
 <script>
-  import Footer from "../comment/Footer";
-  import Header from "../comment/Header";
-  import RightSidebar from "../comment/RightSidebar";
+  import Footer from "./comment/Footer";
+  import Header from "./comment/Header";
+  import RightSidebar from "./comment/RightSidebar";
 
   export default {
     name: "List",

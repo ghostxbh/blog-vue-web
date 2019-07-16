@@ -86,18 +86,6 @@
           </li>
         </ul>
       </div>
-      <!--<div class="widget widget_sentence" v-if="labels.length">
-        <h3>标签分类</h3>
-        <ul class="label-ul">
-          <li v-for="(item,key) in labels" :key="key" style="float: left;padding: 0 0 0 5px;">
-            <a href="" class="btn btn-default" @click="goListByLabel(item.name)">{{item.name}}</a>
-          </li>
-        </ul>
-      </div>
-      <div class="widget widget_sentence">
-        <a href="#" target="_blank" rel="nofollow" title="MZ-NetBlog主题">
-          <img style="width: 100%" src="../../assets/images/ad.jpg" alt="MZ-NetBlog主题"></a>
-      </div>-->
       <div class="widget widget_sentence" v-if="links.length">
         <h3>友情链接</h3>
         <ul class="link-ul">

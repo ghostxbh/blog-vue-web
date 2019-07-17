@@ -55,11 +55,11 @@
               <span class="text">{{item.name}}</span>
               <span class="muted">
                   <i class="glyphicon glyphicon-time"></i>
-				          {{item.create_time}}
+				          {{item.createTime}}
 			          </span>
               <span class="muted">
                   <i class="glyphicon glyphicon-eye-open"></i>
-                  {{item.read_num}}
+                  {{item.readNum}}
                 </span>
             </a>
           </li>

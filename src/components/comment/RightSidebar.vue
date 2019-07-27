@@ -7,9 +7,9 @@
             <li role="presentation" class="active">
               <a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">联系站长</a>
             </li>
-            <li role="presentation">
+            <!--<li role="presentation">
               <a href="#notice" aria-controls="notice" role="tab" data-toggle="tab">统计信息</a>
-            </li>
+            </li>-->
           </ul>
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane contact" id="notice">
@@ -22,13 +22,13 @@
               </h2>
             </div>
             <div role="tabpanel" class="tab-pane contact active" id="contact">
-              <h2>QQ:405963225
-                <a href="" target="_blank" rel="nofollow" data-toggle="tooltip" data-placement="bottom"
-                   title="" data-original-title="QQ:"></a>
-              </h2>
-              <h2>Email:ghostxbh@hotmail.com
-                <a href="#" target="_blank" data-toggle="tooltip" rel="nofollow" data-placement="bottom"
-                   title="" data-original-title="#"></a></h2>
+              <ul class="blog-list">
+                <li><a href="https://github.com/ghostxbh" target="_blank">GitHub</a></li>
+                <li><a href="https://blog.csdn.net/ghostxbh" target="_blank">CSDN</a></li>
+                <li><a href="https://www.jianshu.com/u/acfc657ed3e4" target="_blank">简书</a></li>
+                <li><a href="https://www.cnblogs.com/ghostxbh/" target="_blank">博客园</a></li>
+                <li><a href="#">知乎</a></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -150,5 +150,12 @@
     padding: 14px 8px 10px;
     margin: 0;
     cursor: default;
+  }
+  .blog-list li {
+    font-size: 16px;
+    font-family: "Microsoft YaHei", "微软雅黑", Helvetica, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", Helvetica, Tahoma, "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+    float: left;
+    list-style: none;
+    padding: 45px 11px;
   }
 </style>

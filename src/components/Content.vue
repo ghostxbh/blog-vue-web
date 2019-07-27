@@ -34,7 +34,7 @@
               </span>
             </div>
           </header>
-          <article class="article-content">
+          <article class="markdown-body">
             <p>
               <img :data-original="contentDetail.images" :src="contentDetail.images" alt=""/>
             </p>

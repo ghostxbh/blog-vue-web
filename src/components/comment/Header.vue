@@ -18,8 +18,11 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#header-navbar" aria-expanded="false"><span class="sr-only"></span> <span
               class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <h1 class="logo hvr-bounce-in"><a href="#" title="KivenBen's博客">
-              <img src="../../assets/images/logo.png" alt="KivenBen's博客" height="50" width="180"></a></h1>
+            <h1 class="logo hvr-bounce-in">
+              <a href="/" title="KivenBen's博客">
+                <img src="../../assets/images/logo.png" alt="KivenBen's博客" height="50" width="180">
+              </a>
+            </h1>
           </div>
           <div class="collapse navbar-collapse" id="header-navbar">
             <ul class="nav navbar-nav navbar-right">

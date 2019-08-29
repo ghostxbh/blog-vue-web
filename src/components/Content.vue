@@ -138,7 +138,7 @@
     },
     methods: {
       content(contentId) {
-        let cid = this.$route.query.cid || contentId;
+        let cid = this.$route.params.cid || contentId;
         this.$axios.get("/api/font/content/" + cid).then(res => {
           if (res.status) {
             console.log(res.data.data);

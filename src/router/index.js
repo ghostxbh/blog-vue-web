@@ -16,13 +16,28 @@ export default new Router({
       component: home
     },
     {
-      path: '/content',
+      path: '/content/detail/:cid',
       name: 'Content',
       component: content
     },
     {
-      path: '/list',
-      name: 'List',
+      path: '/list/special/:specialId',
+      name: 'List-special',
+      component: list
+    },
+    {
+      path: '/list/search/:keyword',
+      name: 'List-search',
+      component: list
+    },
+    {
+      path: '/list/type/:typeId',
+      name: 'List-type',
+      component: list
+    },
+    {
+      path: '/list/label/:label',
+      name: 'List-label',
       component: list
     },
     {

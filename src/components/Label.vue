@@ -48,7 +48,7 @@
         })
       },
       goListByLabel(label) {
-        this.$router.push({path: "/list", query: {label: label}});
+        this.$router.push({path: `/list/label/${label}`});
       },
     },
     components: {

@@ -80,7 +80,7 @@
         })
       },
       goContent(cid, e) {
-        this.$router.push({path: "/content", query: {cid: cid}});
+        this.$router.push({path: `/content/detail/${cid}`});
       },
     },
     components: {

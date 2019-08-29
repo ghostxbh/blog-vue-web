@@ -99,10 +99,10 @@
         })
       },
       pageList(status) {
-        let keyword = this.$route.query.keyword || '';
-        let typeId = this.$route.query.typeId || '';
-        let specialId = this.$route.query.specialId || '';
-        let label = this.$route.query.label || '';
+        let keyword = this.$route.params.keyword || '';
+        let typeId = this.$route.params.typeId || '';
+        let specialId = this.$route.params.specialId || '';
+        let label = this.$route.params.label || '';
         let pageNum = this.pageNum;
         if (pageNum >= 1) {
           pageNum = status > 0 ? pageNum - 1 : pageNum + 1;
@@ -123,7 +123,7 @@
         })
       },
       goContent(cid, e) {
-        this.$router.push({path: "/content", query: {cid: cid}});
+        this.$router.push({path: `/content/detail/${cid}`});
       }
     },
     components: {

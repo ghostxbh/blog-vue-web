@@ -78,10 +78,10 @@
     },
     methods: {
       list() {
-        let keyword = this.$route.query.keyword || '';
-        let typeId = this.$route.query.typeId || '';
-        let specialId = this.$route.query.specialId || '';
-        let label = this.$route.query.label || '';
+        let keyword = this.$route.params.keyword || '';
+        let typeId = this.$route.params.typeId || '';
+        let specialId = this.$route.params.specialId || '';
+        let label = this.$route.params.label || '';
         let pageNum = this.$route.query.pageNum || 1;
         let pageSize = this.$route.query.pageSize || 10;
         console.log('keyword:' + keyword + ",typeId:" + typeId + ",specialId:" + specialId + ',label:' + label + ',page:' + pageNum + ',size:' + pageSize);

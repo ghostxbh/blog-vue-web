@@ -7,9 +7,9 @@
             <li role="presentation" class="active">
               <a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">联系站长</a>
             </li>
-            <!--<li role="presentation">
+            <li role="presentation">
               <a href="#notice" aria-controls="notice" role="tab" data-toggle="tab">统计信息</a>
-            </li>-->
+            </li>
           </ul>
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane contact" id="notice">
@@ -127,14 +127,14 @@
         })
       },
       goContent(cid, e) {
-        this.$router.push({path: "/content", query: {cid: cid}});
+        this.$router.push({path: `/content/detail/${cid}`});
       },
       goListBySpecial(specialId) {
-        this.$router.push({path: "/list", query: {specialId: specialId}});
+        this.$router.push({path: `/list/special/${specialId}`});
       },
       goListByKeyword() {
         let keyword = this.keyword;
-        this.$router.push({path: "/list", query: {keyword: keyword}});
+        this.$router.push({path: `/list/search/${keyword}`});
       }
     },
   }

@@ -68,7 +68,7 @@
         })
       },
       goListByType(typeId) {
-        this.$router.push({path: "/list", query: {typeId: typeId}});
+        this.$router.push({path: `/list/type/${typeId}`});
       },
       goLabel() {
         this.$router.push({path: "/label"});
